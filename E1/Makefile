@@ -1,4 +1,5 @@
-NAME = $(shell basename `pwd`)
-$(NAME).pdf: $(NAME).tex
+all: $(patsubst %.tex, %.pdf, $(wildcard *.tex))
+
+%.pdf: %.tex
 	pdflatex $<
 	open $@
